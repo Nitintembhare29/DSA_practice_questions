@@ -9,43 +9,20 @@
  * }
  */
 class Solution {
-    public int getSize(ListNode head){
-			ListNode curr = head;
-			int length =0;
-			while(curr!=null){
-				curr=curr.next;
-				length++;
-			}
-			return length;
-		}
-    
-     public ListNode getAt(ListNode head, int ind){ 
-		 ListNode curr = head;
-		 for(int i=0; i<ind; i++){
-			 curr = curr.next;
-		 } 
-		 return curr;
-		}
     public ListNode reverseList(ListNode head) {
-        int n = getSize(head);
-        
-        int i = 0;
-        int j = n-1;
-        
-        while(i<j){
-            ListNode nodeAtI = getAt(head,i);
-            ListNode nodeAtJ = getAt(head,j);
-            
-            int valAtI = nodeAtI.val;
-            int valAtJ = nodeAtJ.val;
-            
-            nodeAtI.val = valAtJ;
-            nodeAtJ.val = valAtI;
-            
-            i++;
-            j--;
+       ListNode prev = null;
+       ListNode curr = head;
+        while(curr!=null){
+            // save next pointer
+            ListNode nextOfCurr = curr.next;
+            // reverse pinter
+            curr.next = prev;
+            // move pointer
+            prev = curr;
+            curr = nextOfCurr;
         }
-          return head;  
+        head = prev;
+        return head;
 
     }
 }
