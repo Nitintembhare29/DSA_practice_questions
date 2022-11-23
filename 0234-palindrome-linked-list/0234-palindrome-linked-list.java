@@ -40,8 +40,8 @@ class Solution {
         slow = reverseList(slow); // reverse list from mid 3,2,1,1,2,3 then 3,2,1,3,2,1
         fast = head;              // keep fast at head and as slow at mid then compare
         
-        while(slow!=null){
-            if(slow.val!=fast.val){
+        while(slow!=null){ // last node of reverse linkedList points null so used slow!=null 
+            if(slow.val!=fast.val){ 
                 return false;
             }
             slow=slow.next;
