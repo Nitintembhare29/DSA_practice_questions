@@ -16,7 +16,7 @@ class Solution {
        	ListNode slow = head;
 	    ListNode fast = head;
         
-	while(fast.next!=null && fast.next.next!=null){
+	while(fast!=null && fast.next!=null){
 	    slow=slow.next;  // time comlexity O(n)
 	    fast=fast.next.next;
 	}
