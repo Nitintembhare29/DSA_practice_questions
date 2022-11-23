@@ -25,6 +25,9 @@ class Solution {
     
    
     public boolean isPalindrome(ListNode head) {
+        if(head==null){
+            return true;
+        }
         // find mid node
          
         ListNode slow = head;
