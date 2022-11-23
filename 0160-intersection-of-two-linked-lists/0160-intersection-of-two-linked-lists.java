@@ -40,7 +40,7 @@ public class Solution {
         while(curr.next!=null){
             curr=curr.next;
         }
-        curr.next=headA;// cycle created
+        curr.next=headA;// making cycle for check from other list and then undo cycle
         
         ListNode ans = detectCycle(headB);
         curr.next=null; // undo curr.next=headA
