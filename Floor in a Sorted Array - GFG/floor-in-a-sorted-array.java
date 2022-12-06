@@ -39,15 +39,15 @@ class Solution{
     // n is the size of array
     static int findFloor(long arr[], int n, long x)
     {
-        long max =0;
-        int index =-1;
-       for(int i=0; i<n; i++){
-          if(arr[i]>max && arr[i]<=x){
-              max = arr[i];
-              index = i;
+       int i = 0;
+       while(i<n){
+          if(arr[i]<=x){
+              i++;
+          }
+          else{
+              break;
           }
        }
-    
-   return index;
+       return i-1;
 }
 }
