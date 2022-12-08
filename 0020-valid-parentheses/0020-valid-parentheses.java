@@ -1,13 +1,15 @@
 class Solution {
-    public char isMatch(char open){
-        if(open=='('){
-            return ')';
+    public boolean isMatch(char open, char close){
+        if(open=='(' && close==')'){
+            return true;
         }
-        else if(open=='{'){
-            return'}';
+       else if(open=='{' && close=='}'){
+            return true;
         }
-        
-      return ']';
+        else if(open=='[' && close==']'){
+            return true;
+        }
+        return false;
     
     }
     public boolean isValid(String s) {
@@ -20,7 +22,7 @@ class Solution {
             }
             // check if top char is same as curr char pop it
             else{
-                if(st.size()>0 && ch==isMatch(st.peek())){
+                if(st.size()>0 && isMatch(st.peek(),ch)){
                     st.pop();  
                 } else{
                     return false;
@@ -28,10 +30,7 @@ class Solution {
                    
             }
         }
-       if(st.empty()){
-           return true;
-       } 
-        return false;
+      return st.empty();
     }
                    
 }
