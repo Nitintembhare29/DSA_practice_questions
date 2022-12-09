@@ -11,7 +11,7 @@ class Solution {
                   int j=nums[i];
              while(set.contains(j)){
                  j++;
-             }
+             }              // 5-1=4
               ans = Math.max(j-nums[i],ans);
              }
         }
