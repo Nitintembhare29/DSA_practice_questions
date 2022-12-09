@@ -6,22 +6,22 @@ class Solution {
     }
     public void sortColors(int[] nums) {
         int n = nums.length;
-        int p1=-1;
-        int p2=0;
-        int p3=n-1;
+        int l=-1;
+        int m=0;
+        int r=n-1;
        
-        while(p2<=p3){
-            if(nums[p2]==2){
-                swap(nums,p2,p3);
-                p3--;
+        while(m<=r){
+            if(nums[m]==2){
+                swap(nums,m,r);
+                r--;
             }
-            else if(nums[p2]==0){
-                p1++;
-                swap(nums,p1,p2);
-                 p2++;   
+            else if(nums[m]==0){
+                l++;
+                swap(nums,l,m);
+                 m++;   
             }
             else{
-                p2++;
+                m++;
             }
         }
     }
