@@ -22,7 +22,7 @@ class Solution {
             }
             // check if top char is same as curr char pop it
             else{
-                if(st.size()>0 && isMatch(st.peek(),ch)){
+                if(st.size()>0 && isMatch(st.peek(),ch)){ // check open & close bracket
                     st.pop();  
                 } else{
                     return false;
