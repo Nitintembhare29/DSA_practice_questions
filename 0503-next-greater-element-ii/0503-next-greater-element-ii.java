@@ -1,20 +1,20 @@
 class Solution {
-    public int[] nextGreaterElements(int[] nums) {
-        Stack<Integer> st = new Stack<>();
-         int n = nums.length;
-        for(int i=n-1; i>=0; i--){
-            st.push(nums[i]);
-        }
-       
+    public int[] nextGreaterElements(int[] arr) {
+        int n = arr.length;
         int ans[] = new int[n];
-        for(int i=n-1; i>=0; i--){
-            while(st.size()>0 && nums[i]>=st.peek()){
-                st.pop();
+        Arrays.fill(ans,-1);
+        Stack<Integer> st = new Stack<>();// store indices
+		for(int i=0; i<2*n; i++){
+			// check wheather curr ele is NGE or not 
+			while(st.size()>0 && arr[i%n]>arr[st.peek()]){
+				ans[st.pop()]=arr[i%n];
+				 
+			}
+			// if not greater then store index
+            if(i<n){
+			   st.push(i);
             }
-            if(st.empty()) ans[i] = -1;
-            else ans[i] = st.peek();
-            st.push(nums[i]);
-        }
+		}
         return ans;
     }
 }
