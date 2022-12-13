@@ -2,17 +2,17 @@ class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int n = gas.length;
 	int start = 0;
-	int extraPetrol = 0;
-	int requiredPetrol = 0;
+	int extraFuel = 0;
+	int requiredFuel = 0;
 	for(int i=0; i<n; i++){
-	    extraPetrol+=gas[i]-cost[i];
-	    if(extraPetrol<0){
+	    extraFuel+=gas[i]-cost[i];
+	    if(extraFuel<0){
 	        start = i+1;
-	        requiredPetrol+=extraPetrol;
-	        extraPetrol = 0;
+	        requiredFuel+=extraFuel;
+	        extraFuel = 0;
 	    }
 	}
-	if(extraPetrol+requiredPetrol>=0){
+	if(extraFuel+requiredFuel>=0){
 	    return start;
 	}
 	return -1;
